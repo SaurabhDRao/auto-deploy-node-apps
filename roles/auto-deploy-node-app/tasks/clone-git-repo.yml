@@ -1,4 +1,7 @@
 ---
+- name: load ssh key
+  shell: "ssh-add {{ ssh_pvt_key_path }}"
+
 - name: clone a git repo
   git:
     repo: "{{ repo_url }}"
@@ -6,7 +9,7 @@
     version: master
     update: yes
     accept_hostkey: yes
-    key_file: /home/{{ ansible_user }}/.ssh/id_rsa
+    # key_file: /home/{{ ansible_user }}/.ssh/id_rsa
 
 - name: give permissions
   file:
