@@ -5,6 +5,8 @@
   # become_user: root
   # become_method: su
   vars_files:
-  - become_passwords.yml
+  - passwords.yml
   roles:
-  - auto-deploy-node-app
+  - role: auto-deploy-node-app
+    vars:
+      repo_url: git@github.com:KnightShade391/Simple-Node-App.git

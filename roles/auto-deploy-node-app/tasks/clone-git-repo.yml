@@ -1,4 +1,17 @@
 ---
+# a task file that will clone a git repository
+
+# - name: delete the pvt key file
+#   file:
+#     path: ${HOME}/.ssh/id_rsa_ansible.github
+#     state: absent
+
+- name: copy the private key to remote
+  copy:
+    src: "{{ local_pvt_key_path }}"
+    dest: "{{ remote_pvt_key_path }}"
+    owner: "{{ ansible_user }}"
+    mode: "0755"
 
 - name: clone a git repo
   git:
@@ -7,7 +20,7 @@
     version: master
     update: yes
     accept_hostkey: yes
-    key_file: /home/{{ ansible_user }}/.ssh/id_rsa
+    key_file: "{{ remote_pvt_key_path }}"
 
 - name: give permissions
   file:
