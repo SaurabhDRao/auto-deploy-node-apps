@@ -1,0 +1,10 @@
+---
+- hosts: all
+  gather_facts: true
+  become: yes
+  # become_user: root
+  # become_method: su
+  vars_files:
+  - become_passwords.yml
+  roles:
+  - auto-deploy-node-app

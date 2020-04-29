@@ -1,0 +1,17 @@
+---
+- name: install nodejs on ubuntu
+  apt:
+    name: nodejs
+    state: present
+    update_cache: true
+  when: ansible_os_family == 'Debian'
+
+- name: add the NodeSource yum repo
+  shell: "curl -sL https://rpm.nodesource.com/setup_10.x | bash -"
+  when: ansible_os_family == 'RedHat'
+- name: install nodejs on centos
+  yum:
+    name: nodejs
+    state: present
+    update_cache: true
+  when: ansible_os_family == 'RedHat'

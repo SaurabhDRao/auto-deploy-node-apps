@@ -1,0 +1,16 @@
+---
+# tasks file for roles/install-nodejs
+- import_tasks: install-nodejs.yml
+- import_tasks: install-npm.yml
+
+- name: Get the nodejs version
+  shell: "node --version"
+  register: NODE_VERSION
+- name: Get the npm version
+  shell: "npm --version"
+  register: NPM_VERSION
+
+- debug:
+    msg:
+    - "nodejs version: {{ NODE_VERSION.stdout }}"
+    - "npm version: {{ NPM_VERSION.stdout }}"

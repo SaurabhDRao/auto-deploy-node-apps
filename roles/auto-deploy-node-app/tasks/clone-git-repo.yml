@@ -1,0 +1,16 @@
+---
+- name: clone a git repo
+  git:
+    repo: "{{ repo_url }}"
+    dest: "{{ repo_dest_path }}"
+    version: master
+    update: yes
+    accept_hostkey: yes
+    key_file: /home/{{ ansible_user }}/.ssh/id_rsa
+
+- name: give permissions
+  file:
+    path: "{{ repo_dest_path }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    recurse: yes

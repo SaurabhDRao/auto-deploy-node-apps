@@ -1,0 +1,4 @@
+---
+# vars file for roles/auto-deploy-node-app
+repo_url: git@github.com:KnightShade391/Simple-Node-App.git
+repo_dest_path: "/home/{{ ansible_user }}/node-app"

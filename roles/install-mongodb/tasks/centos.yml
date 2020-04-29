@@ -1,0 +1,23 @@
+---
+# tasks file for installing mongodb on centos
+- name: Copy mongodb repository
+  copy:
+    src: files/mongodb-org-3.6.repo
+    dest: /etc/yum.repos.d/mongodb-org-3.6.repo
+
+- name: Install mongodb
+  yum:
+    name: mongodb-org
+    state: latest
+
+- name: Remove mongod default file
+  file:
+    path: /etc/mongod.conf
+    state: absent
+
+- name: Copy the mongod conf
+  template:
+    src: mongod-centos.j2
+    dest: /etc/mongod.conf
+  notify: 
+  - start

@@ -1,0 +1,4 @@
+localhost ansible_user=knightshade ansible_become_pass="{{ ubuntu_password }}"
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3

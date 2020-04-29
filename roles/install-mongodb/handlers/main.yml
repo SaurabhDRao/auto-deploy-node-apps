@@ -1,0 +1,6 @@
+---
+# handlers file for roles/install-mongodb
+- name: start
+  service:
+    name: mongod
+    state: restarted
