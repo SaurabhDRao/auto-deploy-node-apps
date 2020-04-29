@@ -1,7 +1,6 @@
 galaxy_info:
-  author: your name
-  description: your role description
-  company: your company (optional)
+  author: Saurabh D Rao
+  description: This role clones a node app from the git hub and deploys it into the specified VM.
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
