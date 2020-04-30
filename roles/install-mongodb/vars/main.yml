@@ -1,3 +1,0 @@
----
-# vars file for roles/install-mongodb
-bind: 0.0.0.0

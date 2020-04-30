@@ -2,5 +2,6 @@
 # vars file for roles/auto-deploy-node-app
 
 local_pvt_key_path: "files/id_rsa.github"
-remote_pvt_key_path: "${HOME}/.ssh/id_rsa_ansible.github"
-repo_dest_path: "${HOME}/node-app"
+home_dir: /home/{{ ansible_user }}
+remote_pvt_key_path: "{{ home_dir }}/.ssh/id_rsa_ansible.github"
+repo_dest_path: "{{ home_dir }}/node-app"
