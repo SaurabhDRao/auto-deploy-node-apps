@@ -1,0 +1,11 @@
+---
+# a task file that will run the node app.
+    
+- name: check the list of node apps running
+  command: forever list
+  register: forever_list
+  changed_when: false
+
+- name: start the app
+  command: "forever start {{ repo_dest_path }}/app.js"
+#   when: "forever_list.stdout.find('{{ repo_dest_path }}/app.js') == -1"

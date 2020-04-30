@@ -1,0 +1,12 @@
+---
+# a task file that will install all the dependencies from package.json
+
+- name: install all npm packages in package.json
+  npm:
+    path: "{{ repo_dest_path }}"
+
+- name: install forever package
+  npm:
+    name: forever
+    global: yes
+    state: present

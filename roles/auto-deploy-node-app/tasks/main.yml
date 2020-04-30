@@ -1,3 +1,7 @@
 ---
 # tasks file for roles/auto-deploy-node-app
+
+- include_tasks: install-git.yml
 - include_tasks: clone-git-repo.yml
+- include_tasks: install-dependencies.yml
+- include_tasks: run-app.yml

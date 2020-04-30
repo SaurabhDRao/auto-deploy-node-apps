@@ -1,0 +1,18 @@
+---
+# a task file that will install git
+
+# - name: update apt cache
+#   shell: "apt update"
+#   when: ansible_os_family == 'Debian'
+- name: install git on ubuntu
+  apt:
+    name: git
+    state: present
+  when: ansible_os_family == 'Debian'
+    
+- name: install git on centos
+  yum:
+    name: git
+    state: present
+    update_cache: true
+  when: ansible_os_family == 'RedHat'
